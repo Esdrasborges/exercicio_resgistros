@@ -1,16 +1,20 @@
-require 'HTTParty'
-class Exercicio
+
+require 'httparty'
+require 'json'
+class Exercise
     include HTTParty
     base_uri 'https://jsonplaceholder.typicode.com/users'
-
-    def initialize()
-        @options = {}
-    end
     
-    def nomesemordem
-        self.class.get('/users', @options)
+    def names
+        response = HTTParty.get('https://jsonplaceholder.typicode.com/users') 
+        name = JSON.parse(response.name) 
+            name.each do |value|  
+                puts value
+            end
     end
+
+    
 end
 
-registro = Exercicio.new
-puts registro.nomesemordem
+record = Exercise.new
+puts record.names
