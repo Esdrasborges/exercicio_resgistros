@@ -7,7 +7,7 @@ class Exercise
     
     def names
         response = HTTParty.get('https://jsonplaceholder.typicode.com/users') 
-        name = JSON.parse(response.name) 
+        name = JSON.parse(response.body) 
             name.each do |value|  
                 puts value
             end
